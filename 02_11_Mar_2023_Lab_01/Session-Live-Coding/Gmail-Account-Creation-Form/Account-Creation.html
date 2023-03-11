@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+
+  #form{
+      position: absolute;
+      top: 20%;
+      left: 40%;
+      border: 2px solid white;
+      border-radius: 5px;
+
+      padding-left: 30px;
+    }
+    
+
+    input{
+      width: 280px;
+      font-size: 20px;
+      font-family: 'Courier New', Courier, monospace;   
+      
+      padding: 10px;
+      margin-bottom: 10px;
+      border: none;
+    }
+
+    input:focus{
+      /* background-color:darkslategray; */
+      background-color: rgba(0,124,128, 0.35);
+      outline: none;
+    }
+
+    button{
+      width: 120px;
+      height: 30px;
+      border-radius: 4px;
+      color: white;
+      background-color: darkorchid;
+
+      border: none;
+      margin: 20px;
+    }
+
+  </style>
+
+</head>
+<body>
+  
+  <div>
+
+
+    <video muted loop autoplay>
+      <source src="./Background.mp4" type="video/mp4">
+    </video>
+
+    <div id="form">
+
+      <form>
+
+        <h2>Create Gmail Account</h2>
+
+        <input type="text" title="Full Name" placeholder="Full Name" required>
+        <br>
+
+        <input type="number" title="Contact Number" placeholder="Contact Number" min="6666666666" max="9999999999" required>
+        <br>
+        <input type="email" title="Email ID" placeholder="Enter email ID" required>
+        <br>
+        <button>Reset</button>
+        <button>Submit</button>
+
+      </form>
+    </div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<style>
+
+  .menu-styling{
+    list-style-type: none;
+    background-color: lightgray;
+    padding: 0;
+    margin: 0;
+  }
+
+  #main-menu {
+  }
+
+  #main-menu > li {
+    display: inline;
+  }
+
+  #main-menu > li > a {
+    display: inline-block;
+    padding: 10px;
+
+    text-decoration: none;
+    color: white;
+  }
+
+  #main-menu > li > a:hover{
+    background-color: black;
+  }
+
+  #main-menu-item-2{
+    position: relative;
+  }
+
+  #sub-menu-1{
+    position: absolute; 
+
+    top: 40px;
+    padding: 15px;
+    left: 0px;
+
+    /*
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+      padding-top
+    */
+    white-space: nowrap;
+
+    display: none;
+  }
+
+  #main-menu-item-2:hover #sub-menu-1{
+    display: block;
+  }
+
+</style>
+
+<body>
+
+  <nav>
+    <ul id="main-menu" class="menu-styling">
+      <li>
+        <a href="/link1">Link1</a>        
+      </li>
+      <li id="main-menu-item-2">
+        <a href="/link2">Link2</a> 
+        
+        <ul id="sub-menu-1" class="menu-styling">
+          <li>
+            <a href="/dd-link1">DD_Link_1</a>        
+          </li>
+          <li>
+            <a href="/dd-link2">DD_Link_2</a>   
+          </li>
+          <li>  
+            <a href="/dd-link3">DD_Link_3</a>        
+          </li>
+        </ul>
+
+      </li>
+      <li>  
+        <a href="/link3">Link3</a>        
+      </li>
+    </ul>
+  </nav>
+  
+</body>
+</html>
