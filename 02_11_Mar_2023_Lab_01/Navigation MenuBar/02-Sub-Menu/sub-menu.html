@@ -32,6 +32,13 @@
     background-color: black;
   }
 
+  #main-menu-item-2{
+    position: relative;
+  }
+
+  #sub-menu-1{
+    position: absolute; 
+  }
 </style>
 
 <body>
@@ -41,7 +48,7 @@
       <li>
         <a href="/link1">Link1</a>        
       </li>
-      <li>
+      <li id="main-menu-item-2">
         <a href="/link2">Link2</a> 
         
         <ul id="sub-menu-1">
@@ -55,7 +62,7 @@
             <a href="/dd-link3">DD_Link_3</a>        
           </li>
         </ul>
-                
+
       </li>
       <li>  
         <a href="/link3">Link3</a>        
