@@ -42,6 +42,19 @@
 
   #sub-menu-1{
     position: absolute; 
+
+    top: 40px;
+    padding: 15px;
+    left: 0px;
+
+    /*
+    padding-top: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+    padding-left: 15px;
+      padding-top
+    */
+    white-space: nowrap;
   }
 </style>
 
@@ -57,13 +70,13 @@
         
         <ul id="sub-menu-1" class="menu-styling">
           <li>
-            <a href="/dd-link1">DD_Link_1</a>        
+            <a href="/dd-link1">Menu containing lenghty text</a>        
           </li>
           <li>
-            <a href="/dd-link2">DD_Link_2</a>   
+            <a href="/dd-link2">This menu item will not be wrapped</a>   
           </li>
           <li>  
-            <a href="/dd-link3">DD_Link_3</a>        
+            <a href="/dd-link3">Because of no-wrap property</a>        
           </li>
         </ul>
 
