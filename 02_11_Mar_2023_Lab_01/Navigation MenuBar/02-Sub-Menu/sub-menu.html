@@ -9,11 +9,15 @@
 </head>
 
 <style>
-  #main-menu {
+
+  .menu-styling{
     list-style-type: none;
     background-color: lightgray;
     padding: 0;
     margin: 0;
+  }
+
+  #main-menu {
   }
 
   #main-menu > li {
@@ -44,14 +48,14 @@
 <body>
 
   <nav>
-    <ul id="main-menu">
+    <ul id="main-menu" class="menu-styling">
       <li>
         <a href="/link1">Link1</a>        
       </li>
       <li id="main-menu-item-2">
         <a href="/link2">Link2</a> 
         
-        <ul id="sub-menu-1">
+        <ul id="sub-menu-1" class="menu-styling">
           <li>
             <a href="/dd-link1">DD_Link_1</a>        
           </li>
