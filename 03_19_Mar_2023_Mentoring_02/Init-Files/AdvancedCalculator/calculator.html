@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <section>
+            <div class="container">
+                <div id="display"></div>
+                <div class="buttons">
+                  
+                    <div class="button"  ONCLICK="clearDisplay()">clear</div>
+                    <div class="button"  ONCLICK="addChar( '(')">(</div>
+                    <div class="button"  ONCLICK="addChar( ')')">)</div>
+
+
+                    <div class="button"  ONCLICK="deleteChar()">backspace</div>
+                    <div class="button"  ONCLICK="changeSign()">+/-</div>
+                    
+                    <div class="button"  ONCLICK="addChar('7')">7</div>
+                    <div class="button"  ONCLICK="addChar('8')">8</div>
+                    <div class="button"  ONCLICK="addChar('9')">9</div>
+                    <div class="button"  ONCLICK="addChar( '/')">/</div>
+                   
+                    <div class="button"  ONCLICK="addChar( '4')">4</div>
+                    <div class="button" ONCLICK="addChar( '5')">5</div>
+                    <div class="button"  ONCLICK="addChar( '6')">6</div>
+                    <div class="button"  ONCLICK="addChar( '*')">*</div>
+                    
+                    
+                    <div class="button"  ONCLICK="addChar( '1')">1</div>
+                    <div class="button"  ONCLICK="addChar( '2')">2</div>
+                    <div class="button"  ONCLICK="addChar( '3')">3</div>
+                    <div class="button"  ONCLICK="addChar( '+')">+</div>
+                    
+                    <div class="button"  ONCLICK="addChar( '0')">0</div>
+                    <div class="button"  ONCLICK="addChar( '.')">.</div>
+                    
+                    
+                    <div class="button"   ONCLICK="if (checkNum()) { compute() }">enter</div>
+                    <div class="button"  ONCLICK="addChar( '-')">-</div>
+                    <div class="button"  ONCLICK="if (checkNum()) { sqrt() }">sqrt</div>
+                    
+                    
+                   
+                    <div class="button"  ONCLICK="if (checkNum()) { square() }">sq</div>
+                    
+                    
+                    <div class="button"  ONCLICK="if (checkNum()) { exp() }">exp </div>
+                    <div class="button"  ONCLICK="if (checkNum()) { ln() }">ln</div>
+                    
+                   
+                    
+                    <div class="button"  ONCLICK="if (checkNum()) { cos() }">cos</div>
+                    <div class="button"  ONCLICK="if (checkNum()) { sin() }">sin</div>
+                    <div class="button"  ONCLICK="if (checkNum()) { tan() }">tan</div>
+                    
+                    
+                   
+                    
+                   
+                </div>
+            </div>
+        </section>
+        <script src="index.js"></script>
+    </body>
+
+</html>
