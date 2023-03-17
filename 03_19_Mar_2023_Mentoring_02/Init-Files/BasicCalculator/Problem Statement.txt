@@ -1,1 +1,0 @@
-Create a basic calculator to perform addition,substraction ,multiplication using JavaScript,Css and Html.
