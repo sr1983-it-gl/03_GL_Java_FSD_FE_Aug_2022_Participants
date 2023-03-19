@@ -1,0 +1,74 @@
+
+<style>
+
+  .box{
+    height: 250px;
+    width: 250px;
+
+    display: inline-block;
+  }  
+
+  #orangeBox{
+    background-color: orange;
+  }
+
+  #redBox{
+    background-color: red;
+    margin-top: 25px;
+    border: 5px solid green;
+    padding: 8px 8px 8px 8px;
+    box-sizing: content-box;
+  }
+
+  #pinkBox{
+    background-color: pink;
+    margin-top: 25px;
+    box-sizing: border-box;
+  }
+
+  #greenBox{
+    background-color: green;
+    margin-top: 25px;
+
+    border-top: 5px;
+    border-right: 10px; 
+    border-bottom: 15px; 
+    border-left: 20px;
+    border-style: solid;
+    border-color: darkred;
+
+    padding: 8px 8px 8px 8px;
+
+    box-sizing: border-box;
+  }
+
+</style>
+
+<body>
+
+  <div>
+
+    Default Box - Content-Box
+    <div id="orangeBox" class="box">
+      <p>My Orange Box</p>
+    </div>
+  
+    Content Box - Border & Padding
+    <div id="redBox" class="box">
+      <p>My Red Box</p>
+    </div>
+  
+    Border Box - No Padding & Border
+    <div id="pinkBox" class="box">
+      <p>My Pink Box</p>
+    </div>
+  
+    Border Box - With Padding & Border
+    <div id="greenBox" class="box">
+      <p>My Green Box</p>
+    </div>
+  
+  </div>
+
+
+</body>
