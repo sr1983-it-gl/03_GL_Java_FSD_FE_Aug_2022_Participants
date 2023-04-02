@@ -21,6 +21,17 @@ function QuestionAnswerPair (questionObj, multipleOptionsObj, correctAnswerObj) 
   this.multipleOptionsObj = multipleOptionsObj;
   this.correctAnswerObj = correctAnswerObj;
 
+  this.checkAnswer = function(userAnswerText){
+
+    if (correctAnswerObj.answerText === userAnswerText){
+
+      console.log(`Answer is corrrect`);
+      return true;
+    }else{
+      console.log(`Answer is corrrect`);
+      return false;
+    }
+  }
 }
 
 const aFunctions = new Answer("Functions");
@@ -73,14 +84,14 @@ const qaPair5 = new QuestionAnswerPair(
 );
 
 
-function QuestionProgressBar (questionNo, totalNoOfQuestions){
+function QuestionProgressBar (pageIndex, totalNoOfQuestions){
 
-  this.questionNo = questionNo;
+  this.pageIndex = pageIndex;
   this.totalNoOfQuestions = totalNoOfQuestions;
 
   this.getProgressText = function(){
 
-    const progressText = `Question ${questionNo} of ${totalNoOfQuestions}`;
+    const progressText = `Question ${pageIndex} of ${totalNoOfQuestions}`;
     return progressText;
   }
 }
@@ -97,21 +108,92 @@ function Result(score, markPercentage){
   }
 }
 
+function QuizPage (pageIndex, qaPair, qaPairArray) {
+
+  this.pageIndex = pageIndex;
+  this.qaPair = qaPair;
+  this.qaPairArray = qaPairArray;
+
+  this.display = function(){
+
+    // Update the question
+    const questionElement = document.getElementById("question");
+    questionElement.innerHTML = 
+      qaPair.questionObj.questionText;
+
+    // Update all the answer choices
+    for (let index = 0; index < qaPair.multipleOptionsObj.length; index ++){
+
+      const answerObj = qaPair.multipleOptionsObj[index];
+
+      const choiceID = "choice" + index;
+
+      const answerChoiceElement = document.getElementById(choiceID);
+      answerChoiceElement.innerHTML = answerObj.answerText; 
+    }
+
+    // Update question progress bar
+
+    const progressElement = document.getElementById("progress");
+
+    const progressBarObj = new QuestionProgressBar(
+      this.pageIndex, qaPairArray.length);    
+    progressElement.innerHTML = progressBarObj.getProgressText();
+  }
+}
 
 function QuizApplication (qaPairArray) {
 
   this.qaPairArray = qaPairArray;
   this.score = 0;
+  this.pageIndex = 1;
 
   this.start = function(){
 
+    this.registerListeners();
+    this.displayQuizPage();
+  }
+
+  this.registerListeners = function(){
+
+    //TODO
+    const buttonsCount = 4;
+
+    for (let index = 0; index < buttonsCount; index ++){
+
+      const buttonId = `btn${index}`;
+      const buttonElement = document.getElementById(buttonId);    
+      buttonElement.onclick = function(event){
+        handleUserAnswerSelection(event);
+      }  
+    }
+  }
+
+  this.handleUserAnswerSelection = function(event){
+   
+    // Get the user-response (answer)
+
+    const userAnswerText = "";
+
+    // Check whether the user-response (answer) is correct or not
+
+    //TODO - Change 0
+    const qaPair = qaPairArray[0];
+
+    const outcome = qaPair.checkAnswer(userAnswerText);
+    if (outcome){
+      this.incrementScore();
+    }
+    // Increment the score
+    
+    this.nextPage();
   }
 
   this.getScore = function(){
     return this.score;
   }
 
-  this.incrementScore() = function(){
+  this.incrementScore = function(){
     this.score ++; 
   }
 
@@ -122,6 +204,32 @@ function QuizApplication (qaPairArray) {
     const percentage = (this.getScore() / this.qaPairArray.length ) * 100;
     return percentage;
   }
+
+  this.nextPage = function(){
+    
+    // Quiz Page
+    if (this.pageIndex >= 1 && this.pageIndex <= this.qaPairArray.length){
+
+      this.displayQuizPage();
+    }else{
+
+      console.log("Result Page.")
+    }
+    // Result Page
+  }
+
+
+  this.displayQuizPage = function(){
+
+    console.log("Display Quiz Page")
+
+    const qaPair = this.qaPairArray[this.pageIndex - 1];
+
+    const quizPage = new QuizPage(
+      this.pageIndex, qaPair, this.qaPairArray);
+    quizPage.display();
+  }
+
 
 }
 
