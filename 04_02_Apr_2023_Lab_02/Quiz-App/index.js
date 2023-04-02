@@ -71,3 +71,28 @@ const qaPair5 = new QuestionAnswerPair(
   ], 
   aProgrammingLanguage
 );
+
+
+function QuestionProgressBar (questionNo, totalNoOfQuestions){
+
+  this.questionNo = questionNo;
+  this.totalNoOfQuestions = totalNoOfQuestions;
+
+  this.getProgressText = function(){
+
+    const progressText = `Question ${questionNo} of ${totalNoOfQuestions}`;
+    return progressText;
+  }
+}
+
+function Result(score, markPercentage){
+
+  this.score = score;
+  this.markPercentage = markPercentage;
+
+  this.getContent = function(){
+
+    const content = `Your score : ${score}. Mark percentage is ${markPercentage} %`;
+    return content;
+  }
+}
