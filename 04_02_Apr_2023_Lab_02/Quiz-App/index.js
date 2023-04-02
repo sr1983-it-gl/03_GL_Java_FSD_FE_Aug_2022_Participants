@@ -96,3 +96,36 @@ function Result(score, markPercentage){
     return content;
   }
 }
+
+
+function QuizApplication (qaPairArray) {
+
+  this.qaPairArray = qaPairArray;
+  this.score = 0;
+
+  this.start = function(){
+
+  }
+
+  this.getScore = function(){
+    return this.score;
+  }
+
+  this.incrementScore() = function(){
+    this.score ++; 
+  }
+
+  this.getMarkPercentage = function(){
+
+    // ( 2 / 5 ) * 100
+
+    const percentage = (this.getScore() / this.qaPairArray.length ) * 100;
+    return percentage;
+  }
+
+}
+
+const quizApp = new QuizApplication(
+  [qaPair1, qaPair2, qaPair3, qaPair4, qaPair5]
+);
+quizApp.start();
