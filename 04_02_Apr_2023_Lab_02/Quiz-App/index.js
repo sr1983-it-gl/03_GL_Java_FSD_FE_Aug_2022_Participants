@@ -91,12 +91,12 @@ function QuestionProgressBar (pageIndex, totalNoOfQuestions){
 
   this.getProgressText = function(){
 
-    const progressText = `Question ${pageIndex} of ${totalNoOfQuestions}`;
+    const progressText = `Question ${pageIndex + 1} of ${totalNoOfQuestions}`;
     return progressText;
   }
 }
 
-function Result(score, markPercentage){
+function ResultPage(score, markPercentage){
 
   this.score = score;
   this.markPercentage = markPercentage;
@@ -105,6 +105,20 @@ function Result(score, markPercentage){
 
     const content = `Your score : ${score}. Mark percentage is ${markPercentage} %`;
     return content;
+  }
+
+  this.display = function(){
+
+    const content = this.getContent();
+
+    const htmlFragment = 
+    `
+    <h1>Result<h1>
+    <h3 id='score'>${content}</h3>
+    `;
+
+    const quizElement = document.getElementById("quiz");
+    quizElement.innerHTML =  htmlFragment;
   }
 }
 
@@ -146,7 +160,7 @@ function QuizApplication (qaPairArray) {
 
   this.qaPairArray = qaPairArray;
   this.score = 0;
-  this.pageIndex = 1;
+  this.pageIndex = 0;
 
   this.start = function(){
 
@@ -156,29 +170,42 @@ function QuizApplication (qaPairArray) {
 
   this.registerListeners = function(){
 
-    //TODO
-    const buttonsCount = 4;
+    const currentQuizAppObject = this;
+
+    const buttonsCount = qaPairArray[this.pageIndex].multipleOptionsObj.length;
 
     for (let index = 0; index < buttonsCount; index ++){
 
       const buttonId = `btn${index}`;
       const buttonElement = document.getElementById(buttonId);    
-      buttonElement.onclick = function(event){
-        handleUserAnswerSelection(event);
-      }  
+
+      console.log("Invoked successfully...")
+
+      this.associateEventListener(buttonElement, currentQuizAppObject);
     }
+  }
+
+  this.associateEventListener = function(
+    buttonElement, currentQuizAppObject){
+
+    buttonElement.onclick = function(event){
+
+      // Have a reference to 'quizApp' object
+      // quizApp.handleUserAnswerSelection(event)
+      // console.log("printing this...")
+      // console.log(this);
+      currentQuizAppObject.handleUserAnswerSelection(event);
+    }  
   }
 
   this.handleUserAnswerSelection = function(event){
    
     // Get the user-response (answer)
-
-    const userAnswerText = "";
+    const target = event.currentTarget;
+    const userAnswerText = target.children[0].innerText;
 
     // Check whether the user-response (answer) is correct or not
-
-    //TODO - Change 0
-    const qaPair = qaPairArray[0];
+    const qaPair = qaPairArray[this.pageIndex];
 
     const outcome = qaPair.checkAnswer(userAnswerText);
     if (outcome){
@@ -207,15 +234,25 @@ function QuizApplication (qaPairArray) {
 
   this.nextPage = function(){
     
-    // Quiz Page
-    if (this.pageIndex >= 1 && this.pageIndex <= this.qaPairArray.length){
-
-      this.displayQuizPage();
-    }else{
+    if (this.pageIndex == (this.qaPairArray.length - 1)){
 
       console.log("Result Page.")
+
+      const resultPage = new ResultPage(
+        this.getScore(), this.getMarkPercentage()
+      );
+      resultPage.display();
+    }else{
+
+      this.initPage();
     }
-    // Result Page
+  }
+
+  this.initPage = function(){
+
+    this.pageIndex = this.pageIndex + 1;
+    this.registerListeners();
+    this.displayQuizPage();
   }
 
 
@@ -223,7 +260,7 @@ function QuizApplication (qaPairArray) {
 
     console.log("Display Quiz Page")
 
-    const qaPair = this.qaPairArray[this.pageIndex - 1];
+    const qaPair = this.qaPairArray[this.pageIndex];
 
     const quizPage = new QuizPage(
       this.pageIndex, qaPair, this.qaPairArray);
