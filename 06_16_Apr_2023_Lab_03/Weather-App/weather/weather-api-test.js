@@ -6,4 +6,16 @@ function testBuildURL(){
   weatherAPI.buildURL();
 }
 
-testBuildURL();
+async function testInvoke(){
+
+  const weatherAPI = new WeatherAPI("Germany");
+  weatherAPI.buildURL();
+
+  const responseInJSON = await weatherAPI.invoke();
+  console.log(responseInJSON);
+
+}
+
+// testBuildURL();
+
+testInvoke();
