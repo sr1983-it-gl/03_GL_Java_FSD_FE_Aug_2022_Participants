@@ -1,0 +1,15 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "chrome",
+      "request": "launch",
+      "name": "Food-App-1.0",
+      "url": "http://localhost:9999",
+      "webRoot": "C:\\Users\\sr198\\Git\\GreatLearning\\Batches\\Participants\\GL_Java_FSD_FE_Participants\\03_GL_Java_FSD_FE_Aug_2022_Participants\\05_09_Apr_2023_Mentoring_03\\Food-App"
+    }
+  ]
+}
