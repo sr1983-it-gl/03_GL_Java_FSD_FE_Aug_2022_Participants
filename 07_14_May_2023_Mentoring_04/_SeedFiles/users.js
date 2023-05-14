@@ -1,5 +1,4 @@
-const users = {
-  users: [
+const users = [ 
       {
           username: "rajesh",
           password: "rajesh",
@@ -9,6 +8,6 @@ const users = {
           password: "vidhya",
       },
   ]
-};
+;
 
 export {users};
