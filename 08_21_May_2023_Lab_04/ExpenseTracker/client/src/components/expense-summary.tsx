@@ -1,6 +1,7 @@
 
 import {Table} from "react-bootstrap"
 import IExpenseItem from "../models/expense"
+import {getAllUniquePayeeNames} from "../utils/expense-utils"
 
 type ExpenseSummaryModel = {
   expenseItems: IExpenseItem[];
@@ -10,20 +11,9 @@ type ExpenseSummaryModel = {
 
 const ExpenseSummary = ({expenseItems} : ExpenseSummaryModel) => {
 
-  const getAllPayeeNames = () => {
+  const getAllUniquePayeeNamesLocal = () => {
 
-    const uniquePayeeNames : string[] = []
-
-    expenseItems.forEach( (expenseItem) => {
-
-      const payeeName = expenseItem.payeeName;
-
-      if (!uniquePayeeNames.includes(payeeName)){
-
-        uniquePayeeNames.push(payeeName);
-      }      
-    })
-    return uniquePayeeNames;
+    return getAllUniquePayeeNames(expenseItems);
   }
 
   const calculateTotalExpensesByPayee = (payeeName : string) => {
@@ -67,7 +57,7 @@ const ExpenseSummary = ({expenseItems} : ExpenseSummaryModel) => {
     const totalExpense = calculateGrandTotal();
     const totalContributionByPayee = calculateTotalExpensesByPayee(payeeName);
 
-    const halfAmount = totalExpense / 2;
+    const halfAmount = totalExpense / getAllUniquePayeeNamesLocal().length;
 
     if (totalContributionByPayee >= halfAmount){
       return 0;
@@ -91,10 +81,10 @@ const ExpenseSummary = ({expenseItems} : ExpenseSummaryModel) => {
 
       <tbody>
         {
-          getAllPayeeNames().map( (payeeName, index) => {
+          getAllUniquePayeeNamesLocal().map( (payeeName, index) => {
 
             return (
-              <tr>
+              <tr key={index+1}>
               <td>{index + 1}</td>
               <td>{payeeName}</td>
               <td>{calculateTotalExpensesByPayee(payeeName)}</td>
@@ -124,10 +114,10 @@ const ExpenseSummary = ({expenseItems} : ExpenseSummaryModel) => {
 
       <tbody>
         {
-          getAllPayeeNames().map( (payeeName, index) => {
+          getAllUniquePayeeNamesLocal().map( (payeeName, index) => {
 
             return (
-              <tr>
+              <tr key={index +1}>
               <td>{index + 1}</td>
               <td>{`${payeeName} ==> `}</td>
               <td>{calculatePendingAmount(payeeName)}</td>

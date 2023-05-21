@@ -48,6 +48,41 @@
       "price": 600,
       "date": "2023-02-01T00:00:00.000Z",
       "id": 8
+    },
+    {
+      "expenseDescription": "Trip to germany",
+      "payeeName": "Ramesh",
+      "price": 123456,
+      "date": "2023-05-17T00:00:00.000Z",
+      "id": 9
+    },
+    {
+      "expenseDescription": "Trip to Spain",
+      "payeeName": "Ramesh",
+      "price": 22222,
+      "date": "2023-05-22T00:00:00.000Z",
+      "id": 10
+    },
+    {
+      "expenseDescription": "Rent Car",
+      "payeeName": "Ramesh",
+      "price": 11111,
+      "date": "2023-05-25T00:00:00.000Z",
+      "id": 11
+    },
+    {
+      "expenseDescription": "1",
+      "payeeName": "Ramesh",
+      "price": 2,
+      "date": "2023-06-01T00:00:00.000Z",
+      "id": 12
+    },
+    {
+      "expenseDescription": "Buy Car",
+      "payeeName": "Rahul",
+      "price": 1111,
+      "date": "2023-05-26T00:00:00.000Z",
+      "id": 13
     }
   ]
 }

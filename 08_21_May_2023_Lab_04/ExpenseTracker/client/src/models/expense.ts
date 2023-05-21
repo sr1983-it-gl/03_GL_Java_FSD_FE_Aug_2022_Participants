@@ -9,6 +9,8 @@ interface IExpenseItem{
 
 }
 
+export type IExpenseCreateItem = Omit<IExpenseItem, "id">
+
 // export {IExpenseItem}
 
 export default IExpenseItem;
