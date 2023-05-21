@@ -1,0 +1,74 @@
+{
+  "items": [
+    {
+      "expenseDescription": "expense-3",
+      "payeeName": "Ramesh",
+      "price": 500,
+      "date": "2023-02-26T00:17:38.930Z",
+      "id": 3
+    },
+    {
+      "expenseDescription": "expense-2",
+      "payeeName": "Ramesh",
+      "price": 200,
+      "date": "2023-02-26T00:17:38.930Z",
+      "id": 2
+    },
+    {
+      "expenseDescription": "test-2",
+      "payeeName": "Rahul",
+      "price": 100,
+      "date": "2023-02-26T00:23:02.173Z",
+      "id": 4
+    },
+    {
+      "expenseDescription": "test-3",
+      "payeeName": "Rahul",
+      "price": 123,
+      "date": "2023-02-01T00:00:00.000Z",
+      "id": 5
+    },
+    {
+      "expenseDescription": "test-6",
+      "payeeName": "Rahul",
+      "price": 600,
+      "date": "2023-02-01T00:00:00.000Z",
+      "id": 6
+    },
+    {
+      "expenseDescription": "Internet Bill",
+      "payeeName": "Ramesh",
+      "price": 100,
+      "date": "2023-02-01T00:00:00.000Z",
+      "id": 7
+    },
+    {
+      "expenseDescription": "Movie Expenses",
+      "payeeName": "Rahul",
+      "price": 600,
+      "date": "2023-02-01T00:00:00.000Z",
+      "id": 8
+    },
+    {
+      "expenseDescription": "Trip to US",
+      "payeeName": "Rahul",
+      "price": 123,
+      "date": "2023-05-24T00:00:00.000Z",
+      "id": 9
+    },
+    {
+      "expenseDescription": "Trip to Europe",
+      "payeeName": "Rahul",
+      "price": 12344,
+      "date": "2023-05-25T00:00:00.000Z",
+      "id": 10
+    },
+    {
+      "expenseDescription": "new item",
+      "payeeName": "Ramesh",
+      "price": 15,
+      "date": "2023-05-05T00:00:00.000Z",
+      "id": 11
+    }
+  ]
+}
