@@ -6,6 +6,7 @@ import {getAllExpenseItems} from "../services/expense"
 import {Container} from "react-bootstrap"
 import { ExpenseItems } from "./expense-items";
 import IExpenseItem from "../models/expense";
+import { ExpenseSummary } from "./expense-summary";
 
 const ExpenseTracker = () => {
 
@@ -35,6 +36,7 @@ const ExpenseTracker = () => {
 
       <ExpenseItems expenseItems={expenseItems}></ExpenseItems>
 
+      <ExpenseSummary expenseItems={expenseItems}></ExpenseSummary>
     </Container>
 
   )
